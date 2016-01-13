@@ -1273,7 +1273,8 @@ class XML_HTMLSax3 {
     }
 }
 
-// class HTML_White �?axiuno@gmail.com 编写�?// 技术支持：http://www.xiuno.com/
+// class HTML_White 由 axiuno@gmail.com 编写。
+// 技术支持：http://www.xiuno.com/
 class HTML_White {
         private $_stack = array();	//
         private $_dcStack = array();	// 删除的栈
@@ -1341,7 +1342,8 @@ class HTML_White {
 		return $this->_xhtml;
 	}
 
-        // 过滤属�?        private function _writeAttrs($attrs) {
+        // 过滤属性
+        private function _writeAttrs($attrs) {
         	if(!is_array($attrs)) {
         	 	return true;
         	}
@@ -1398,7 +1400,7 @@ class HTML_White {
 				}
 				$value = substr($value, 0, -1);
 
-			// 过滤危险�?embed src=
+			// 过滤危险的 embed src=
 	               /*} elseif($name == 'src') {
 	              	 	$v = $this->white_value[$name];
 	              	 	$ok = 0;
@@ -1424,7 +1426,8 @@ class HTML_White {
 	               			}
 	               		}
 	               		$value = $ok ? $value : $v[1];*/
-	                // 白名单�?	                } elseif(isset($this->white_value[$name]))  {
+	                // 白名单值
+	                } elseif(isset($this->white_value[$name]))  {
 	                	$v = $this->white_value[$name];
         			if($v[0] == 'range') {
         				$px = 0;
@@ -1480,7 +1483,8 @@ class HTML_White {
 	public function _openHandler(&$parser, $name, $attrs) {
 		$name = strtolower($name);
 
-		// 删除标签和内�?		if(!in_array($name, $this->white_tag)) {
+		// 删除标签和内容
+		if(!in_array($name, $this->white_tag)) {
 			array_push($this->_dcStack, $name);
 			$this->_dcCounter[$name] = isset($this->_dcCounter[$name]) ? $this->_dcCounter[$name]+1 : 1;
 		}
@@ -1597,7 +1601,8 @@ class HTML_White {
 	}
 }
 
-// class xn_html_safe �?axiuno@gmail.com 编写�?// 技术支持：http://www.xiuno.com/
+// class xn_html_safe 由 axiuno@gmail.com 编写。
+// 技术支持：http://www.xiuno.com/
 // 严格的图片URL格式
 
 
@@ -1714,7 +1719,7 @@ function xn_html_safe($doc) {
 /*error_reporting(E_ALL);
 //$s = '<b onclick="ddd">abcc</b><table class="abc" style="width: 103330px;  expression:(alert(123)); background: url(1.jpg) no-repeat ;" allowfullscreen="xxx" allowscriptaccess="yes"><tr><td>xxxxxxxxxxx</td></tr></table>';
 //$s = '<embed wmode="transparent" src="http://player.youku.com/player.php/sid/XNDcxMDUzNzI4/v.swf" style="z-index:0;" width="876" height="454" type="application/x-shockwave-flash" allowfullscreen="true" class="border"><br><div></div>';
-//$s = '<p style="margin-top: 0px;">　　<strong style="margin: 0px; padding: 0px;">模仿视频练习杀人技�?/strong></p><p style="margin-top: 0px;">　　2007�?月，该团伙骨干成员木沙・艾山曾涉嫌暴恐活动被公安机关审查�?010�?月，木沙・艾山与喀斯木・买买提结识。此后，喀斯木・买买提先后与团伙其他成员相识�?012�?月以来，上述人员经常观看宣传宗教极端和暴恐内容的音视频，形成了暴恐团伙�?/p>';
+//$s = '<p style="margin-top: 0px;">　　<strong style="margin: 0px; padding: 0px;">模仿视频练习杀人技巧</strong></p><p style="margin-top: 0px;">　　2007年7月，该团伙骨干成员木沙・艾山曾涉嫌暴恐活动被公安机关审查。2010年9月，木沙・艾山与喀斯木・买买提结识。此后，喀斯木・买买提先后与团伙其他成员相识。2012年9月以来，上述人员经常观看宣传宗教极端和暴恐内容的音视频，形成了暴恐团伙。</p>';
 $s = '<a href="javascript://www.baidu.com/">baidu</a>';
 echo xn_html_safe($s);*/
 
